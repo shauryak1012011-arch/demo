@@ -1,0 +1,1725 @@
+# PROJECT: DISASTERGUARD AI
+## Complete Full-Stack Disaster Monitoring, Intelligence, Historical Research and Early-Warning Platform
+
+Act as a senior full-stack software architect, UI/UX designer, AI/ML engineer, IoT systems engineer, GIS developer, database architect and cybersecurity specialist.
+
+Your task is to design and build a complete, professional, production-oriented web application named **DisasterGuard AI**.
+
+This is not a simple dashboard, landing page, static website, or UI-only prototype.
+
+Build a connected disaster-monitoring and intelligence platform designed to work with a physical solar-powered, multi-hazard monitoring pole containing environmental sensors, a microcontroller, communication modules, a solar power system, an emergency beacon and controlled alert equipment.
+
+The platform should be suitable for a serious national-level school science exhibition and research project, with a professional appearance comparable to a modern government disaster-management command and intelligence platform.
+
+The application must have:
+- A fully developed frontend.
+- A functional backend.
+- A structured database.
+- Secure authentication and role-based access.
+- Live IoT sensor integration architecture.
+- AI-powered hazard analysis.
+- Historical disaster records covering approximately the last ten years.
+- Interactive GIS maps.
+- Pole and sensor management.
+- Alert management.
+- An advanced simulation and demonstration laboratory.
+- A separate demonstration-data environment.
+- Professional reports and analytics.
+
+Do not stop after generating a homepage or dashboard mockup. Build the complete application, including working navigation, functional buttons, database operations, forms, charts, filters, maps, and realistic data flows.
+
+---
+
+# 1. PROJECT IDENTITY
+
+Product name: DisasterGuard AI
+
+Full name: Solar-Powered Intelligent Multi-Hazard Monitoring and Early-Warning Research Network.
+
+Tagline: Detect Early. Alert Faster. Protect Communities.
+
+Product category:
+- Disaster intelligence.
+- Environmental monitoring.
+- IoT monitoring.
+- Multi-hazard research.
+- Geospatial intelligence.
+- AI-powered risk analysis.
+- Emergency alert management.
+
+Primary objective:
+
+Develop an integrated platform that collects information from physical monitoring poles, analyses environmental conditions, compares readings with historical disaster information, identifies unusual conditions, produces explainable risk assessments and displays controlled alerts through a central command centre.
+
+The platform should support both real sensor connections and an exhibition simulation mode.
+
+Important positioning:
+This is an educational research and prototype platform. Do not claim that it is an officially approved government disaster-warning system. Do not use government logos or falsely imply government affiliation.
+
+Do not claim to predict earthquakes or replace IMD, NDMA, CWC, INCOIS or other authorised warning agencies.
+
+---
+
+# 2. OVERALL APPLICATION ARCHITECTURE
+
+Build the system using a modular full-stack architecture.
+
+Recommended technology stack:
+
+Frontend:
+- React.
+- TypeScript.
+- Vite or the supported Google AI Studio application framework.
+- Tailwind CSS.
+- Reusable UI components.
+- Responsive layouts.
+
+Backend:
+- Python FastAPI or a compatible backend supported by the environment.
+- REST APIs.
+- WebSocket support for live sensor updates.
+- Background data-import jobs.
+- Server-side validation.
+
+Database:
+- PostgreSQL.
+- PostGIS for geographic information.
+- Supabase may be used for database, authentication and storage if supported.
+- Proper database migrations and relationships.
+
+AI:
+- Google Gemini API.
+- Use server-side API calls.
+- Never expose API keys in frontend code.
+- Use specialised analytical functions for different hazard categories.
+- Use Gemini for explanations, research assistance and report generation, not as a replacement for validated numerical prediction models.
+
+IoT:
+- ESP32-compatible communication architecture.
+- MQTT or HTTP sensor ingestion.
+- LoRa gateway support.
+- Wi-Fi support.
+- Optional 4G/LTE gateway support.
+- Local buffering and later synchronisation.
+
+Mapping:
+- Leaflet or MapLibre.
+- OpenStreetMap-compatible map layers.
+- Geographic coordinates for poles and historical events.
+
+Charts:
+- Recharts or an equivalent professional chart library.
+
+The architecture must be modular so that each module can be developed, tested and maintained independently.
+
+If the environment cannot create a particular backend service automatically, create its complete integration interface, configuration instructions, API contracts and clearly labelled local development implementation.
+
+Do not silently substitute fake functionality for real functionality.
+
+---
+
+# 3. DESIGN AND VISUAL IDENTITY
+
+Create a premium, modern disaster-intelligence interface.
+
+The application should look like a professional national environmental monitoring and disaster-response command centre.
+
+Visual direction:
+- Dark navy primary background.
+- Deep blue surfaces.
+- White and light-grey typography.
+- Cyan highlights.
+- Orange warning indicators.
+- Red critical indicators.
+- Green normal-status indicators.
+- Subtle borders and restrained shadows.
+- High information density without visual clutter.
+
+Suggested colours:
+- Background: #07111F
+- Sidebar: #0B1728
+- Cards: #101F33
+- Primary cyan: #00C2D6
+- Blue: #2563EB
+- Normal green: #16A36A
+- Warning yellow: #EAB308
+- Elevated orange: #F97316
+- Critical red: #DC2626
+- Primary text: #F8FAFC
+- Secondary text: #94A3B8
+
+Design requirements:
+1. Professional left navigation sidebar.
+2. Top navigation bar.
+3. Global search.
+4. Notification centre.
+5. User profile and account menu.
+6. Date and time display.
+7. Live system connection status.
+8. Responsive tablet and laptop layouts.
+9. Proper loading skeletons.
+10. Empty states and error states.
+11. Searchable and filterable data tables.
+12. Consistent cards, charts, badges and buttons.
+13. Functional tooltips.
+14. Accessible colour contrast.
+15. Smooth but restrained transitions.
+
+Avoid:
+- Excessive gradients.
+- Excessive animations.
+- Cartoon-style graphics.
+- Oversized empty cards.
+- Fake real-time counters.
+- Decorative buttons that do nothing.
+- Unnecessary glassmorphism.
+- Generic AI-generated landing-page appearance.
+
+Use clear icons and meaningful data visualisations.
+
+The dashboard should feel like an actual operational intelligence system.
+
+---
+
+# 4. APPLICATION NAVIGATION
+
+Create the following main sidebar navigation:
+
+1. Command Centre
+2. Live Monitoring
+3. Monitoring Poles
+4. Sensor Intelligence
+5. Disaster Intelligence
+6. GIS Risk Map
+7. Alert Management
+8. Historical Disaster Database
+9. AI Research Assistant
+10. Simulation Laboratory
+11. Analytics and Reports
+12. Data Sources
+13. System Health
+14. Settings and Administration
+
+Every item must open a fully implemented page.
+
+Use nested navigation where necessary.
+
+Do not create multiple navigation items that lead to the same placeholder page.
+
+---
+
+# 5. COMMAND CENTRE DASHBOARD
+
+Create the main command-centre dashboard.
+
+It should provide a comprehensive overview of the monitoring network.
+
+Top-level KPI cards:
+
+- Total registered monitoring poles.
+- Online poles.
+- Offline poles.
+- Total connected sensors.
+- Sensors reporting errors.
+- Current monitoring alerts.
+- Elevated-risk monitoring locations.
+- Historical disaster records.
+- Data received today.
+- Network communication health.
+
+Each card should be clickable and open the relevant filtered page.
+
+Dashboard sections:
+
+A. NATIONAL MONITORING MAP
+
+Display:
+- All registered monitoring poles.
+- Pole status.
+- Sensor availability.
+- Location.
+- Last communication time.
+- Current readings.
+- Associated hazard categories.
+- Nearby historical events.
+- Current official warning information, when an authorised source is connected.
+
+Use different marker appearances for normal, monitoring, elevated-risk, offline and demonstration poles.
+
+Selecting a pole must open a detailed side panel.
+
+B. LIVE ENVIRONMENTAL OVERVIEW
+
+Show:
+- Temperature.
+- Humidity.
+- Atmospheric pressure.
+- Rainfall.
+- Wind speed.
+- Wind direction.
+- Water level.
+- Soil moisture.
+- Ground vibration.
+- PM2.5 readings.
+- Battery percentage.
+- Solar generation.
+
+Include units and timestamps.
+
+C. HAZARD INTELLIGENCE
+
+Display separate panels for:
+- Flood monitoring.
+- Ground-vibration monitoring.
+- Severe weather.
+- Landslide monitoring.
+- Smoke and wildfire indicators.
+
+Each panel must show:
+- Latest measurement.
+- Historical comparison.
+- Current data quality.
+- Risk-assessment status.
+- Last update.
+- Relevant sensor or data source.
+
+D. RECENT EVENTS
+
+Show a timeline of:
+- Sensor threshold events.
+- Data-quality warnings.
+- Communication failures.
+- Simulated incidents.
+- Authorised test alerts.
+- Historical event imports.
+- Operator acknowledgements.
+
+Clearly distinguish live observations, historical records and simulated events.
+
+E. NETWORK HEALTH
+
+Display:
+- Online/offline distribution.
+- Communication success rate.
+- Sensor reporting status.
+- Solar system status.
+- Database connection.
+- Backend service status.
+
+Do not invent operational uptime. Show actual measured values or clearly labelled demonstration values.
+
+---
+
+# 6. MONITORING POLE MANAGEMENT
+
+Create a complete pole-management system.
+
+Each monitoring pole should have a unique identifier.
+
+Example:
+DG-IND-0001
+
+Pole registration form:
+
+- Pole ID.
+- Pole name.
+- Installation location.
+- Latitude.
+- Longitude.
+- State.
+- District.
+- City.
+- Installation date.
+- Pole type.
+- Communication method.
+- Controller ID.
+- Solar system details.
+- Operational status.
+- Assigned sensor modules.
+- Installation notes.
+
+Pole detail page:
+
+1. Pole overview.
+2. Geographic location.
+3. Connected sensors.
+4. Latest sensor readings.
+5. Historical readings.
+6. Communication status.
+7. Battery health.
+8. Solar generation.
+9. Alerts associated with the pole.
+10. Maintenance history.
+11. Sensor calibration history.
+12. Data-quality information.
+13. Device logs.
+
+Provide controls to:
+- Add a pole.
+- Edit pole information.
+- Assign sensors.
+- Remove a sensor association.
+- Change pole status.
+- View readings.
+- Export pole records.
+- View maintenance history.
+
+Require appropriate permissions for administrative changes.
+
+Include a sample demonstration pole that is clearly marked DEMO.
+
+---
+
+# 7. SENSOR INTELLIGENCE MODULE
+
+Create a central sensor management and monitoring system.
+
+Support the following sensors and modules.
+
+FLOOD MONITORING:
+- Waterproof ultrasonic water-level sensor.
+- Float switch.
+- Tipping-bucket rain gauge.
+- Optional water-flow sensor.
+
+WEATHER MONITORING:
+- BME280 environmental sensor.
+- Wind-speed sensor.
+- Wind-direction sensor.
+- Separate rainfall measurements.
+
+GROUND-VIBRATION MONITORING:
+- ADXL345 or MPU6050 demonstration accelerometer.
+- Support for future higher-quality three-axis seismic instrumentation.
+- Waveform recording.
+
+LANDSLIDE MONITORING:
+- Capacitive soil-moisture sensor.
+- Tilt/inclinometer sensor.
+- Optional crack/displacement sensor.
+
+SMOKE AND WILDFIRE INDICATORS:
+- PM2.5 particulate sensor.
+- Temperature measurements.
+- Optional optical smoke detection module.
+
+LOCATION:
+- GPS module.
+
+POWER:
+- INA219 or equivalent current/voltage measurement module.
+- Battery-monitoring interface.
+- Solar-generation monitoring.
+
+Each sensor must have:
+
+- Sensor ID.
+- Sensor type.
+- Pole ID.
+- Manufacturer/model, if known.
+- Measurement unit.
+- Latest reading.
+- Last update timestamp.
+- Operational status.
+- Data-quality status.
+- Calibration status.
+- Configured reporting interval.
+- Error logs.
+
+Sensor detail page:
+
+- Live reading.
+- Historical chart.
+- Min/max/average values.
+- Measurement unit.
+- Data-quality indicator.
+- Sensor status.
+- Missing data intervals.
+- Calibration records.
+- Error history.
+
+Allow filters by:
+- Pole.
+- Sensor type.
+- Date.
+- Operational status.
+- Hazard category.
+
+IMPORTANT:
+Do not assume that every sensor is connected just because its type is listed.
+
+Support three states:
+1. Connected hardware.
+2. Simulated sensor.
+3. Not configured.
+
+Never display simulated readings as physical measurements.
+
+---
+
+# 8. FLOOD INTELLIGENCE
+
+Create a dedicated Flood Intelligence module.
+
+Inputs:
+- Water level.
+- Water-level rate of rise.
+- Rainfall intensity.
+- Accumulated rainfall.
+- Optional flow rate.
+- Historical flood events.
+- Available geographical information.
+
+Features:
+
+1. Live water-level monitoring.
+2. Water-level time-series charts.
+3. Rate-of-rise calculation.
+4. Rainfall correlation.
+5. Historical comparison.
+6. Sensor-quality verification.
+7. Configurable experimental thresholds.
+8. Risk-assessment explanation.
+9. Demonstration alert workflow.
+10. Flood incident report.
+
+Show:
+- Current water level.
+- Previous reading.
+- Change over time.
+- Rate of rise.
+- Rainfall in the selected time window.
+- Sensor health.
+- Risk classification.
+- Confidence or data-quality limitations.
+
+Use a separate configurable threshold system.
+
+Do not invent universal flood thresholds. Thresholds must be configured for the demonstration site or supplied by a trusted authority.
+
+The AI should explain which measurements contributed to a risk assessment.
+
+---
+
+# 9. EARTHQUAKE AND GROUND-VIBRATION RESEARCH
+
+Create a specialised Ground Vibration Research module.
+
+This is an educational vibration-monitoring system.
+
+Features:
+
+1. Three-axis acceleration display.
+2. X-axis graph.
+3. Y-axis graph.
+4. Z-axis graph.
+5. Combined waveform.
+6. Timestamped readings.
+7. Vibration anomaly indicators.
+8. Event recording.
+9. Historical waveform replay.
+10. Demonstration P-wave/S-wave timeline.
+11. Comparison of recorded and simulated waveforms.
+12. Exportable waveform report.
+
+Explain the difference between:
+
+- P waves.
+- S waves.
+- Surface waves.
+- Ground-motion monitoring.
+- Earthquake early warning.
+- Earthquake prediction.
+
+The system must explicitly explain that:
+
+A P-wave is generally the first seismic wave to arrive. Earthquake early-warning systems detect an earthquake after it begins and may provide a limited warning to locations farther from the source before stronger shaking arrives.
+
+A single low-cost accelerometer on a pole cannot provide a validated P-wave earthquake early-warning system.
+
+Never label a vibration anomaly as a confirmed earthquake without appropriate validation.
+
+Never claim to predict earthquake location, magnitude or occurrence time.
+
+Create a simulation in which:
+- A waveform is loaded.
+- An educational P-wave segment is shown.
+- A stronger later-wave segment is shown.
+- The application demonstrates how detection and communication delays affect warning time.
+- All simulated events are marked DEMO.
+
+---
+
+# 10. WEATHER AND SEVERE-WEATHER INTELLIGENCE
+
+Create a Weather Intelligence module.
+
+Display:
+
+- Temperature.
+- Humidity.
+- Atmospheric pressure.
+- Rainfall.
+- Wind speed.
+- Wind direction.
+- Historical trends.
+- Official forecast information, where available.
+
+Include:
+- Heavy-rainfall monitoring.
+- High-wind indicators.
+- Weather trend analysis.
+- Cyclone information from connected official sources.
+- Heatwave information from connected official sources.
+- Regional weather history.
+
+Integrate authorised official weather sources where technically possible.
+
+Keep the distinction between:
+- Pole-measured weather.
+- External weather forecasts.
+- Historical weather datasets.
+- Simulated weather.
+
+Do not create fake official weather warnings.
+
+---
+
+# 11. LANDSLIDE INTELLIGENCE
+
+Create a Landslide Monitoring module.
+
+Inputs:
+- Soil moisture.
+- Tilt.
+- Rainfall.
+- Historical landslide information.
+- Slope characteristics, where available.
+
+Features:
+- Soil-moisture history.
+- Tilt trend.
+- Rainfall correlation.
+- Sensor status.
+- Historical event comparison.
+- Demonstration slope model.
+- Experimental risk assessment.
+- Research report.
+
+Explain that sensor readings at one location do not establish the stability of an entire hillside.
+
+Use this module for educational monitoring and research, not certified geotechnical safety decisions.
+
+---
+
+# 12. WILDFIRE AND SMOKE INTELLIGENCE
+
+Create a Wildfire Indicators module.
+
+Inputs:
+- PM2.5.
+- Temperature.
+- Available weather information.
+- Satellite fire data, when connected.
+
+Features:
+- Particulate monitoring.
+- Temperature trends.
+- Sensor anomaly detection.
+- External satellite event display.
+- Historical wildfire map.
+- Demonstration smoke scenario.
+- Explainable indicator assessment.
+
+Do not label a PM2.5 increase as a confirmed wildfire.
+
+Clearly distinguish:
+- Sensor observation.
+- Possible smoke indicator.
+- Satellite-reported fire.
+- Confirmed official incident.
+
+---
+
+# 13. MULTI-HAZARD GIS INTELLIGENCE MAP
+
+This should be one of the most impressive modules.
+
+Build a full-screen interactive geographic intelligence map.
+
+Use Leaflet or MapLibre.
+
+Map layers:
+
+1. Monitoring pole locations.
+2. Pole operational status.
+3. Flood-monitoring locations.
+4. Ground-vibration monitoring locations.
+5. Weather-monitoring locations.
+6. Landslide-monitoring locations.
+7. Smoke-monitoring locations.
+8. Historical earthquake records.
+9. Historical flood records.
+10. Historical cyclone records.
+11. Historical landslide records.
+12. Historical wildfire records.
+13. Historical drought records.
+14. Official warning information, if connected.
+15. Demonstration event locations.
+
+Features:
+
+- Search location.
+- Zoom.
+- Pan.
+- Map layer selection.
+- Hazard-category filtering.
+- Date filtering.
+- Event clustering.
+- Pole selection.
+- Historical event selection.
+- Information side panel.
+- Coordinate display.
+- Geographic filters.
+- Legend.
+- Export selected geographic records.
+
+Clicking a historical event should display:
+- Event name or ID.
+- Hazard category.
+- Date.
+- Location.
+- Magnitude or intensity, if available.
+- Reported impact, if available.
+- Source.
+- Source record link.
+
+Do not invent geographic coordinates.
+
+---
+
+# 14. HISTORICAL DISASTER DATABASE — TEN YEARS
+
+Create a complete historical disaster research module.
+
+Initial target period:
+12 November 2016 to 12 November 2026.
+
+Allow users to extend or change the date range.
+
+The database should support both India-focused and global records.
+
+Disaster categories:
+
+- Earthquakes.
+- Floods.
+- Cyclones.
+- Severe storms.
+- Landslides.
+- Wildfires.
+- Droughts.
+- Heatwaves.
+- Tsunamis.
+- Other documented natural hazards.
+
+Potential data sources:
+
+- USGS Earthquake Catalog.
+- NASA EONET.
+- NASA FIRMS.
+- GDACS.
+- EM-DAT, subject to access and licensing.
+- Copernicus climate and weather datasets.
+- Official IMD data, subject to availability.
+- Official CWC information, subject to availability.
+- INCOIS information, subject to availability.
+- Other properly licensed national and international datasets.
+
+Build a data-source management module.
+
+Every imported record must retain:
+
+- Original source.
+- Original event ID.
+- Event name.
+- Hazard category.
+- Date and time.
+- Latitude.
+- Longitude.
+- Country.
+- State or region, if known.
+- Reported intensity or magnitude.
+- Impact statistics, if available.
+- Description.
+- Source URL.
+- Import timestamp.
+- Data completeness.
+- Verification status.
+
+Import requirements:
+
+1. Use official APIs where available.
+2. Support pagination.
+3. Support date-range filtering.
+4. Support incremental imports.
+5. Support resumable imports.
+6. Support deduplication.
+7. Preserve original source IDs.
+8. Keep original raw records.
+9. Normalise records into a consistent schema.
+10. Log failed imports.
+11. Display import progress.
+12. Support manual CSV/JSON uploads.
+13. Validate coordinates and dates.
+14. Track licensing and usage restrictions.
+
+Create a data-import administration screen.
+
+Show:
+- Available sources.
+- Connection status.
+- Last successful import.
+- Number of imported records.
+- Number of failed records.
+- Duplicate count.
+- Data coverage.
+- Last import time.
+
+IMPORTANT:
+Do not claim the database is complete worldwide or that every disaster from the last ten years has been imported.
+
+Never fabricate historical records.
+
+Never turn missing values into zero.
+
+If a source cannot be accessed, clearly show that the source is not connected and provide a manual import option.
+
+Historical records must be separate from demonstration records.
+
+---
+
+# 15. AI DISASTER INTELLIGENCE ENGINE
+
+Integrate Google Gemini using secure server-side API calls.
+
+Create an AI Disaster Intelligence module.
+
+The AI should support:
+
+A. Flood analysis.
+B. Weather trend interpretation.
+C. Ground-vibration anomaly explanation.
+D. Landslide indicator interpretation.
+E. Smoke and particulate analysis.
+F. Historical event comparison.
+G. Multi-hazard research.
+H. Incident report generation.
+I. Natural-language database queries.
+J. Research assistance.
+
+Do not use one generic AI answer as the source of all risk scores.
+
+Build separate analytical functions.
+
+Examples:
+
+Flood analysis:
+- Water-level trend.
+- Rate of rise.
+- Rainfall accumulation.
+- Sensor quality.
+- Historical context.
+
+Landslide analysis:
+- Soil-moisture trend.
+- Tilt trend.
+- Rainfall history.
+- Site-specific limitations.
+
+Ground-vibration analysis:
+- Recorded acceleration.
+- Frequency and amplitude features, where supported.
+- Background noise.
+- Event duration.
+- Data quality.
+
+Smoke indicators:
+- PM2.5 trend.
+- Temperature trend.
+- External corroborating information.
+
+Use deterministic calculations or properly trained and validated models for numerical assessments.
+
+Use Gemini to explain the results in plain language.
+
+Every AI assessment should include:
+
+- Hazard category.
+- Inputs considered.
+- Calculated result.
+- Risk classification, if justified.
+- Data-quality status.
+- Missing information.
+- Explanation.
+- Limitations.
+- Timestamp.
+- Source references.
+
+Do not invent confidence percentages.
+
+Do not claim a model has been trained or validated unless the required training and evaluation actually happened.
+
+Create an explainability panel showing why a result was generated.
+
+---
+
+# 16. AI RESEARCH ASSISTANT
+
+Build an integrated AI assistant called:
+
+DisasterGuard Research Assistant.
+
+It should appear as a dedicated page and an optional collapsible assistant panel.
+
+Users should be able to ask:
+
+- What is the current water-level trend at a selected pole?
+- Which locations had the most recorded floods in a selected period?
+- Compare rainfall patterns with historical flood records.
+- Explain the latest vibration anomaly.
+- Show the historical earthquakes in a selected region.
+- Summarise the last ten years of cyclone records in India.
+- Which sensors are offline?
+- Generate a report for a selected event.
+- Explain how a multi-hazard monitoring pole works.
+- Compare simulated readings with real historical records.
+
+AI requirements:
+
+1. Retrieve information from the database.
+2. Retrieve relevant connected documents.
+3. Use Gemini to explain the retrieved information.
+4. Cite records and sources.
+5. Identify when information is unavailable.
+6. Never fabricate sensor readings.
+7. Never fabricate historical events.
+8. Distinguish real data from demo data.
+9. Never claim to issue official disaster warnings.
+
+Provide suggested questions.
+
+Display source references below answers.
+
+---
+
+# 17. ALERT MANAGEMENT SYSTEM
+
+Create a complete alert-management interface.
+
+Alert levels:
+
+GREEN — Normal monitoring.
+
+YELLOW — Monitoring attention required.
+
+ORANGE — Elevated experimental risk indicator.
+
+RED — Critical demonstration state or authorised test alert.
+
+Do not automatically convert a single unverified sensor anomaly into a real public emergency warning.
+
+Alert records should contain:
+
+- Alert ID.
+- Pole ID.
+- Hazard category.
+- Alert severity.
+- Triggering observations.
+- Data-quality status.
+- Creation time.
+- Acknowledgement status.
+- Assigned operator.
+- Resolution time.
+- Notes.
+- Source: hardware, external official source or simulation.
+
+Features:
+
+- Alert list.
+- Alert detail.
+- Filters.
+- Search.
+- Severity indicators.
+- Acknowledge alert.
+- Assign operator.
+- Resolve alert.
+- View history.
+- Export report.
+
+Hardware control:
+
+Create an authorised, controlled test interface for the beacon and buzzer.
+
+Include:
+- Test mode.
+- Output status.
+- Test duration setting.
+- Operator confirmation.
+- Test history.
+- Emergency stop/disable control.
+
+The public-warning output must be disabled by default.
+
+During development and exhibition, use simulation mode or a controlled, supervised low-voltage demonstration. Never connect the application to a public siren without proper authorisation and safety procedures.
+
+---
+
+# 18. SIMULATION AND DEMONSTRATION LABORATORY
+
+This is a critical feature.
+
+Create a dedicated Simulation Laboratory for the science exhibition.
+
+The user should be able to demonstrate the entire system without connecting physical sensors.
+
+Create these scenarios:
+
+SCENARIO 1: FLOOD DEMONSTRATION
+
+Steps:
+1. Select a demonstration pole.
+2. Start the flood scenario.
+3. Generate a simulated rainfall sequence.
+4. Increase simulated water-level readings.
+5. Display a rising water-level graph.
+6. Calculate the rate of rise.
+7. Run the flood analysis.
+8. Show an explainable risk assessment.
+9. Create a demonstration alert.
+10. Change the pole's visual warning state.
+11. Play a controlled test sound if explicitly enabled.
+12. Record the event.
+13. Generate a report.
+
+SCENARIO 2: EARTHQUAKE VIBRATION DEMONSTRATION
+
+Steps:
+1. Select the vibration research scenario.
+2. Load a recorded or clearly labelled simulated waveform.
+3. Display the waveform.
+4. Display X, Y and Z acceleration.
+5. Show an educational P-wave and S-wave sequence.
+6. Demonstrate detection and communication delay.
+7. Generate a simulated anomaly event.
+8. Show the alert timeline.
+9. Save the demonstration.
+
+SCENARIO 3: LANDSLIDE DEMONSTRATION
+
+Steps:
+1. Select a model slope.
+2. Increase simulated soil moisture.
+3. Change simulated tilt.
+4. Display rainfall information.
+5. Show trends.
+6. Generate an experimental risk assessment.
+7. Create a demonstration alert.
+8. Generate a report.
+
+SCENARIO 4: WILDFIRE INDICATOR DEMONSTRATION
+
+Steps:
+1. Select the wildfire indicator scenario.
+2. Increase simulated PM2.5 values.
+3. Display temperature information.
+4. Show particulate trends.
+5. Explain possible causes and limitations.
+6. Generate a simulated indicator alert.
+7. Save the report.
+
+SCENARIO 5: SEVERE WEATHER DEMONSTRATION
+
+Steps:
+1. Simulate increasing wind speed.
+2. Simulate rainfall.
+3. Change temperature and pressure.
+4. Display environmental graphs.
+5. Show the experimental weather assessment.
+6. Save the demonstration.
+
+ADDITIONAL SIMULATION FEATURES:
+
+- Start.
+- Pause.
+- Resume.
+- Reset.
+- Playback speed.
+- Scenario selection.
+- Select demonstration pole.
+- Adjustable simulation parameters.
+- Live chart updates.
+- Event timeline.
+- Alert history.
+- Export report.
+- Reset demo data.
+
+Every simulated reading, event and alert must be clearly marked DEMO or SIMULATED.
+
+Do not overwrite real sensor records when resetting a demonstration.
+
+Keep demo data in a separate database environment or rigorously isolated dataset.
+
+Provide a prominent DEMO MODE indicator.
+
+---
+
+# 19. PHYSICAL POLE INTEGRATION
+
+The physical prototype will contain:
+
+- ESP32 controller.
+- Waterproof ultrasonic water-level sensor.
+- Float switch.
+- Tipping-bucket rain gauge.
+- BME280.
+- Wind-speed sensor.
+- Wind-direction sensor.
+- ADXL345 or MPU6050 vibration sensor.
+- Soil-moisture sensor.
+- Tilt sensor.
+- PM2.5 sensor.
+- GPS.
+- Solar panel.
+- Protected battery and charge-control system.
+- LED emergency beacon.
+- Electronic buzzer.
+- Speaker.
+- Display.
+- LoRa or Wi-Fi communication.
+
+Create a dedicated IoT integration layer.
+
+The website must support:
+
+1. Device registration.
+2. Device authentication.
+3. Pole identification.
+4. Sensor identification.
+5. Data ingestion.
+6. Timestamp validation.
+7. Measurement-unit validation.
+8. Data-quality checking.
+9. Sensor-health monitoring.
+10. Duplicate-message handling.
+11. Missing-data detection.
+12. Communication-status monitoring.
+13. Local-data synchronisation.
+14. Event logging.
+
+Suggested API:
+
+POST /api/v1/iot/telemetry
+
+Example message:
+
+{
+  "pole_id": "DG-IND-0001",
+  "device_id": "ESP32-DG-001",
+  "timestamp": "2026-11-12T10:30:00Z",
+  "mode": "LIVE",
+  "sensors": [
+    {
+      "sensor_id": "WATER-001",
+      "type": "water_level",
+      "value": 1.25,
+      "unit": "m",
+      "status": "normal"
+    },
+    {
+      "sensor_id": "RAIN-001",
+      "type": "rainfall",
+      "value": 12.5,
+      "unit": "mm",
+      "status": "normal"
+    }
+  ],
+  "power": {
+    "battery_voltage": 12.1,
+    "solar_voltage": 18.0
+  }
+}
+
+This is an illustrative message schema, not a claim about actual hardware readings.
+
+Create:
+- API authentication.
+- Input validation.
+- Device registration.
+- Example ESP32 integration documentation.
+- MQTT topic conventions.
+- WebSocket event delivery.
+- Sensor simulation endpoints.
+- Connection status indicators.
+
+Do not invent a hardware connection or pretend that a physical pole is online before it has actually connected.
+
+Create a hardware integration guide for future ESP32 firmware development.
+
+---
+
+# 20. SOLAR POWER INTELLIGENCE
+
+Create a solar and energy monitoring module.
+
+Display:
+
+- Solar-panel voltage.
+- Solar-panel current.
+- Estimated power generation.
+- Battery voltage.
+- Battery percentage, only if properly measurable or estimated using a documented method.
+- Energy generated.
+- Energy consumed, if instrumented.
+- Charging status.
+- Power-system health.
+- Low-battery events.
+
+Charts:
+- Daily solar generation.
+- Battery trend.
+- Energy consumption.
+- Charging history.
+
+Provide alerts for:
+- Low battery.
+- Solar charging fault.
+- Unexpected power loss.
+- Missing power telemetry.
+
+Clearly distinguish measured values from estimates.
+
+---
+
+# 21. ANALYTICS AND REPORT GENERATION
+
+Create a professional analytics section.
+
+Report types:
+
+1. Daily monitoring report.
+2. Weekly monitoring report.
+3. Monthly sensor report.
+4. Pole health report.
+5. Flood research report.
+6. Ground-vibration research report.
+7. Landslide monitoring report.
+8. Wildfire indicator report.
+9. Historical disaster analysis.
+10. Demonstration experiment report.
+11. Data-source import report.
+12. Alert summary.
+
+Include:
+- Graphs.
+- Tables.
+- Event timelines.
+- Geographic summaries.
+- Data-source references.
+- Methodology.
+- Data-quality notes.
+- Limitations.
+
+Allow export to:
+- PDF.
+- CSV.
+- JSON.
+
+Reports must state whether their contents are real observations, external data, estimates or simulations.
+
+---
+
+# 22. USER AUTHENTICATION AND ROLE MANAGEMENT
+
+Create secure authentication.
+
+Roles:
+
+SUPER ADMIN:
+- Complete access.
+- Manage users.
+- Manage devices.
+- Manage data sources.
+- Manage integrations.
+- Configure system settings.
+- Manage roles and permissions.
+
+ADMIN:
+- Manage poles.
+- Manage sensors.
+- Manage alerts.
+- View analytics.
+- Manage demonstration scenarios.
+
+OPERATOR:
+- View assigned poles.
+- Monitor readings.
+- Acknowledge alerts.
+- Create reports.
+- Perform permitted tests.
+
+RESEARCHER:
+- Access historical records.
+- Access research analytics.
+- Run simulations.
+- Export permitted reports.
+
+VIEWER:
+- Read-only dashboard access.
+
+Features:
+- Sign in.
+- Sign out.
+- Secure password handling.
+- Password reset.
+- Session management.
+- Role-based access control.
+- User activity logs.
+- Account status.
+- Permission checks on backend APIs.
+
+Do not hardcode passwords or admin credentials into source code.
+
+Create an initial secure administrator setup procedure.
+
+---
+
+# 23. DATABASE DESIGN
+
+Create a properly structured relational database.
+
+Required tables:
+
+1. users
+2. roles
+3. permissions
+4. user_roles
+5. monitoring_poles
+6. sensors
+7. pole_sensor_assignments
+8. sensor_readings
+9. sensor_health_logs
+10. pole_health_logs
+11. solar_power_readings
+12. alerts
+13. alert_acknowledgements
+14. alert_history
+15. historical_disasters
+16. historical_data_sources
+17. data_import_jobs
+18. data_import_logs
+19. simulation_scenarios
+20. simulation_runs
+21. simulation_readings
+22. system_events
+23. maintenance_records
+24. calibration_records
+25. AI_analysis_records
+26. generated_reports
+27. audit_logs
+28. device_credentials
+
+Requirements:
+
+- Primary keys.
+- Foreign keys.
+- Indexes.
+- Timestamps.
+- Data validation.
+- Geographic fields.
+- Appropriate deletion policies.
+- Database migrations.
+- Row-level security where applicable.
+- Separation of real, external and simulated datasets.
+
+Use appropriate indexing for time-series and geographic queries.
+
+Never store passwords in plain text.
+
+Do not put API secrets in database fields accessible to normal frontend users.
+
+---
+
+# 24. DATA SOURCES AND EXTERNAL INTEGRATIONS
+
+Create a Data Sources page.
+
+Support the configuration of:
+
+- USGS.
+- NASA EONET.
+- NASA FIRMS.
+- GDACS.
+- Copernicus.
+- IMD, where authorised access is available.
+- CWC, where authorised access is available.
+- INCOIS, where authorised access is available.
+- Other licensed research datasets.
+
+For each source show:
+
+- Source name.
+- Data category.
+- Connection status.
+- Access method.
+- Last successful update.
+- Number of imported records.
+- Licensing notes.
+- Documentation URL.
+- Import status.
+
+Implement external integrations only when their APIs, permissions and access requirements are known.
+
+Do not invent API endpoints, access keys or successful imports.
+
+If a source needs a manual download, provide a file-upload workflow.
+
+---
+
+# 25. SYSTEM HEALTH AND ADMINISTRATION
+
+Create a system administration dashboard.
+
+Display:
+
+- Backend status.
+- Database status.
+- IoT ingestion status.
+- WebSocket status.
+- AI service status.
+- External data-source status.
+- Import-job status.
+- Last successful backup, if configured.
+- Application version.
+- Error logs.
+- Audit logs.
+
+Provide administrative settings for:
+
+- Application name.
+- Timezone.
+- Measurement units.
+- Demo-mode defaults.
+- Sensor reporting intervals.
+- Experimental alert thresholds.
+- Data retention policies.
+- User management.
+- Integration settings.
+
+Never expose server secrets or internal error traces to normal users.
+
+---
+
+# 26. SECURITY AND RELIABILITY
+
+Implement:
+
+- Server-side authentication.
+- Role-based permissions.
+- Input validation.
+- Rate limiting.
+- Secure API key management.
+- Device authentication.
+- Audit logging.
+- CORS restrictions.
+- Protection against common web vulnerabilities.
+- Secure database access.
+- Error handling.
+- Logging.
+- Backup and recovery documentation.
+
+Treat sensor readings and external data as untrusted input.
+
+Prevent:
+- Fake device identities.
+- Duplicate telemetry.
+- Invalid coordinates.
+- Invalid measurement units.
+- Unauthorised device commands.
+- Accidental mixing of simulated and live data.
+
+Never permit the AI model to directly issue real public-warning commands.
+
+Hardware-output commands must pass through an authenticated, permission-checked and controlled test workflow.
+
+---
+
+# 27. SAMPLE DATA AND FIRST-RUN EXPERIENCE
+
+The application must not open as an empty, unfinished dashboard.
+
+Create a clearly labelled sample environment.
+
+Include:
+- 3 demonstration poles.
+- Different sensor configurations.
+- Simulated readings.
+- Sample historical disaster records.
+- Sample alerts.
+- Sample sensor-health events.
+- Sample reports.
+- Sample AI explanations.
+- Sample map markers.
+
+Use realistic but explicitly fictional demonstration locations and readings.
+
+Never label fictional data as actual Indian disaster records.
+
+Provide a first-run setup screen that allows an administrator to:
+
+1. Configure the project.
+2. Set the region.
+3. Create the first administrator.
+4. Register a pole.
+5. Select available sensors.
+6. Enable simulation mode.
+7. Configure connected data sources.
+
+---
+
+# 28. RESPONSIVE DESIGN
+
+The entire platform must work on:
+
+- Desktop computers.
+- Laptops.
+- Tablets.
+- Mobile browsers.
+
+Prioritise desktop command-centre usability, but ensure mobile users can:
+- View alerts.
+- View sensor readings.
+- View pole details.
+- View the GIS map.
+- Use the research assistant.
+- View reports.
+
+Tables should become responsive cards or horizontally scrollable sections where appropriate.
+
+---
+
+# 29. DEVELOPMENT PHASES
+
+Develop the project in the following order.
+
+PHASE 1 — APPLICATION FOUNDATION
+- Project setup.
+- Design system.
+- Navigation.
+- Authentication.
+- Database structure.
+- Role management.
+
+PHASE 2 — COMMAND CENTRE
+- Dashboard.
+- KPI cards.
+- Charts.
+- GIS map.
+- Recent events.
+- Network health.
+
+PHASE 3 — POLE AND SENSOR MANAGEMENT
+- Pole registration.
+- Sensor registration.
+- Sensor readings.
+- Historical charts.
+- Device health.
+
+PHASE 4 — IOT BACKEND
+- Telemetry APIs.
+- Device authentication.
+- MQTT/HTTP architecture.
+- WebSocket updates.
+- Local simulation source.
+
+PHASE 5 — DISASTER INTELLIGENCE
+- Flood module.
+- Ground-vibration module.
+- Weather module.
+- Landslide module.
+- Wildfire indicator module.
+
+PHASE 6 — HISTORICAL DATABASE
+- Source configuration.
+- Import workflows.
+- Normalisation.
+- Deduplication.
+- Historical map.
+
+PHASE 7 — AI INTEGRATION
+- Gemini connection.
+- Hazard-specific analytical functions.
+- Research assistant.
+- Explainability.
+- Report generation.
+
+PHASE 8 — ALERT MANAGEMENT
+- Alert creation.
+- Acknowledgement.
+- Alert history.
+- Controlled hardware test interface.
+
+PHASE 9 — SIMULATION LABORATORY
+- Five demonstration scenarios.
+- Live charts.
+- Scenario controls.
+- Demo alerts.
+- Report generation.
+
+PHASE 10 — FINAL QUALITY ASSURANCE
+- Test all navigation.
+- Test all forms.
+- Test database operations.
+- Test APIs.
+- Test role permissions.
+- Test simulation isolation.
+- Test mobile layouts.
+- Test error states.
+- Test security.
+- Fix all major bugs.
+
+Do not skip phases to create a visually impressive but nonfunctional application.
+
+---
+
+# 30. ACCEPTANCE CRITERIA
+
+The application is not complete until all of the following work:
+
+1. Administrator can sign in.
+2. Administrator can register a monitoring pole.
+3. Administrator can register sensors.
+4. A pole can have multiple sensors.
+5. Sensor readings can be received through the backend.
+6. Readings can be saved in the database.
+7. Live readings appear on the dashboard.
+8. Historical sensor charts work.
+9. Offline sensors are identified.
+10. Pole status is updated correctly.
+11. Solar readings are displayed.
+12. GIS markers display the correct pole locations.
+13. Historical records can be filtered.
+14. Historical data-source information is retained.
+15. Simulation scenarios can be started and stopped.
+16. Simulation readings update charts.
+17. Demo alerts are clearly labelled.
+18. Simulation data does not overwrite real telemetry.
+19. AI analysis uses actual retrieved information.
+20. AI responses identify missing information.
+21. Alert acknowledgement works.
+22. Reports can be generated and exported.
+23. User permissions are enforced on backend APIs.
+24. The mobile layout is usable.
+25. The application handles unavailable external services gracefully.
+
+Every visible button must perform its advertised action.
+
+Every form must validate inputs.
+
+Every table must display actual stored or explicitly labelled demonstration data.
+
+Do not create fake links, fake success messages, fake API connections or fake device status.
+
+---
+
+# 31. IMPORTANT INSTRUCTIONS FOR GOOGLE AI STUDIO
+
+Start by examining the development environment and selecting an architecture that can actually run in that environment.
+
+Then:
+
+1. Build the application structure.
+2. Create the complete design system.
+3. Implement the navigation and pages.
+4. Implement database integration.
+5. Implement backend APIs.
+6. Implement demonstration data.
+7. Implement IoT integration interfaces.
+8. Implement AI features.
+9. Implement historical-data workflows.
+10. Test the application.
+
+Do not simply return an explanation of how to build the project.
+
+Actually generate and implement the code.
+
+If the complete application cannot fit into one generation, divide development into clear phases and continue modifying the same project. Do not regenerate the entire project from scratch during each phase.
+
+Preserve existing working code.
+
+Before making changes:
+- Inspect the existing file structure.
+- Identify completed modules.
+- Identify missing modules.
+- Avoid unnecessary dependencies.
+- Avoid overwriting working components.
+
+After each phase:
+- Run the application.
+- Fix compilation errors.
+- Fix runtime errors.
+- Check navigation.
+- Check database connections.
+- Check responsive layouts.
+
+Use clean component architecture and reusable services.
+
+Provide:
+- README.
+- Environment-variable example file.
+- Database schema and migration instructions.
+- API documentation.
+- IoT integration documentation.
+- AI configuration instructions.
+- Local development instructions.
+- Deployment instructions.
+
+Use environment variables for all secrets.
+
+Never put a Gemini API key, database service key or device secret in frontend source code.
+
+---
+
+# 32. FINAL PRODUCT EXPECTATION
+
+The final product must be called DisasterGuard AI.
+
+It must look and behave like a complete multi-hazard monitoring and disaster-intelligence platform.
+
+A visitor should be able to understand:
+
+1. What the physical monitoring pole does.
+2. Which sensors it contains.
+3. How environmental information reaches the platform.
+4. How readings are stored.
+5. How historical disaster information is used.
+6. How AI analyses the information.
+7. How the platform displays hazard indicators.
+8. How controlled alerts are managed.
+9. How multiple monitoring poles can form a network.
+10. How the simulation laboratory demonstrates the entire concept.
+
+The central experience should be:
+
+PHYSICAL MONITORING POLE
+→ SENSOR DATA COLLECTION
+→ ESP32 / COMMUNICATION GATEWAY
+→ SECURE BACKEND
+→ DATABASE
+→ HAZARD-SPECIFIC ANALYSIS
+→ AI EXPLANATION
+→ GIS COMMAND CENTRE
+→ CONTROLLED ALERT AND REPORTING
+
+Build this as one cohesive application, not separate disconnected demo pages.
+
+**Begin by inspecting the environment and implementing the application foundation. Then proceed through the development phases until the complete working platform is delivered.**
