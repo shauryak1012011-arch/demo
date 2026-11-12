@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Bell, Wifi, UserCheck } from 'lucide-react';
+import { Bell, Wifi, Globe, Volume2 } from 'lucide-react';
 import { User as UserType, Alert } from '../types';
 
 interface HeaderProps {
@@ -8,13 +8,19 @@ interface HeaderProps {
   alerts: Alert[];
   onOpenAlerts: () => void;
   onSearchClick: () => void;
+  language?: 'en' | 'hi';
+  onToggleLanguage?: () => void;
+  onPlayAnnouncement?: (msg: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   currentViewTitle,
   currentUser,
   alerts,
-  onOpenAlerts
+  onOpenAlerts,
+  language = 'en',
+  onToggleLanguage,
+  onPlayAnnouncement
 }) => {
   const [timeStr, setTimeStr] = useState('');
   const [utcStr, setUtcStr] = useState('');
@@ -39,6 +45,16 @@ export const Header: React.FC<HeaderProps> = ({
 
   const unacknowledgedAlerts = alerts.filter((a) => !a.acknowledged);
 
+  const handleTestAudio = () => {
+    if (onPlayAnnouncement) {
+      if (language === 'hi') {
+        onPlayAnnouncement('चेतावनी: आपदा प्रबंधन प्रारंभिक चेतावनी अनुसंधान प्रणाली सामान्य रूप से कार्यरत है।');
+      } else {
+        onPlayAnnouncement('Warning: DisasterGuard AI multi-hazard monitoring network operational.');
+      }
+    }
+  };
+
   return (
     <header className="h-16 bg-white border-b border-slate-200 px-4 md:px-6 flex items-center justify-between gap-4 z-20 shadow-xs">
       {/* View Title & Breadcrumb */}
@@ -54,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="hidden lg:flex items-center gap-4 text-xs font-mono text-slate-700">
         <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded-md border border-emerald-200 font-medium">
           <Wifi className="w-3.5 h-3.5 text-emerald-600" />
-          <span>IoT Stream Live</span>
+          <span>{language === 'hi' ? 'लाइव स्ट्रीम सक्रिय' : 'IoT Stream Live'}</span>
         </div>
         <div className="text-slate-500 text-right">
           <div className="text-slate-900 font-semibold tabular-nums">{timeStr}</div>
@@ -62,11 +78,35 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Actions: Notifications & User profile */}
+      {/* Actions: Bilingual Toggle, Notifications & User profile */}
       <div className="flex items-center gap-3 shrink-0">
+        {/* Bilingual English / Hindi Toggle Button */}
+        {onToggleLanguage && (
+          <button
+            onClick={onToggleLanguage}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700 transition-colors cursor-pointer"
+            title="Toggle Language / भाषा बदलें"
+          >
+            <Globe className="w-3.5 h-3.5 text-blue-600" />
+            <span className="font-mono">{language === 'en' ? 'EN | हिंदी' : 'हिंदी | EN'}</span>
+          </button>
+        )}
+
+        {/* Audio Announcement Quick Test Button */}
+        {onPlayAnnouncement && (
+          <button
+            onClick={handleTestAudio}
+            className="p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer hidden sm:flex"
+            title={language === 'hi' ? 'ऑडियो उद्घोषणा परीक्षण' : 'Test Speech Announcement'}
+          >
+            <Volume2 className="w-4 h-4 text-blue-600" />
+          </button>
+        )}
+
+        {/* Notifications Button */}
         <button
           onClick={onOpenAlerts}
-          className="relative p-2 rounded-lg bg-slate-100 text-slate-700 hover:text-slate-900 hover:bg-slate-200 border border-slate-200 transition-colors"
+          className="relative p-2 rounded-lg bg-slate-100 text-slate-700 hover:text-slate-900 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer"
           title="Active Monitoring Alerts"
         >
           <Bell className="w-4 h-4" />
